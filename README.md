@@ -1,1 +1,72 @@
 # Number-Guessing-Game
+Project Overview
+
+The Number Guessing Game is a simple and interactive web-based game where the user tries to guess a randomly generated number between 1 and 100.
+
+After each guess, the game provides feedback indicating whether the guess is too high, too low, or correct. It also keeps track of the number of attempts made by the player.
+
+This project is great for beginners to understand basic **JavaScript logic, DOM manipulation, and event handling.
+
+Features
+
+* Random number generation between 1–100
+* User input field for entering guesses
+* Instant feedback:
+
+  * Too High 
+  * Too Low 
+  * Correct Guess 
+* Displays total number of attempts
+* Restart button to play again
+* Simple and responsive UI
+
+ Technologies Used
+
+* HTML5 – Structure of the game
+* CSS3 – Styling and layout
+* JavaScript (Vanilla JS) – Game logic and interactivity
+
+
+How to Run the Project
+
+Step 1: Save the File
+
+* Copy the code into a file named:
+
+  ```
+  index.html
+  ```
+Step 2: Open in Browser
+
+* Double-click the file OR
+* Open it using any modern browser like:
+
+  * Google Chrome
+  * Mozilla Firefox
+  * Microsoft Edge
+
+How to Play
+
+1. Enter a number between **1 and 100**
+2. Click on **Submit Guess**
+3. Read the feedback:
+
+   * "Too high!" → Try a smaller number
+   * "Too low!" → Try a bigger number
+   * "Correct!" → You win 🎉
+4. Check your total attempts
+5. Click **Restart Game** to play again
+
+Notes
+
+* Only numbers between **1 and 100** are allowed
+* Invalid inputs will show an error message
+* The game resets when you click the restart button
+
+Future Improvements
+
+* Add difficulty levels (Easy, Medium, Hard)
+* Add timer ⏱️
+* Add sound effects 🔊
+* Show previous guesses history
+* Add animations for better UX
