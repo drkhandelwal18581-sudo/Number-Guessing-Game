@@ -1,97 +1,134 @@
-# Number Guessing Game 🎯
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
 
-## 📌 Project Overview
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-The **Number Guessing Game** is a simple and interactive web-based game where the user tries to guess a randomly generated number between **1 and 100**.
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
 
-After each guess, the game provides feedback indicating whether the guess is **too high**, **too low**, or **correct**. It also keeps track of the number of attempts made by the player.
+    h2 {
+      margin-bottom: 15px;
+    }
 
-This project is great for beginners to understand basic **JavaScript logic, DOM manipulation, and event handling**.
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
 
----
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
 
-## 🚀 Features
+    button:hover {
+      background: #0056b3;
+    }
 
-* Random number generation between **1–100**
-* User input field for entering guesses
-* Instant feedback:
+    .message {
+      font-size: 18px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-  * Too High 📉
-  * Too Low 📈
-  * Correct Guess ✅
-* Displays total number of attempts
-* Restart button to play again
-* Simple and responsive UI
+    .attempts {
+      margin-top: 8px;
+      color: #555;
+    }
 
----
+    .restart {
+      background: #28a745;
+    }
 
-## 🛠️ Technologies Used
+    .restart:hover {
+      background: #1e7e34;
+    }
+  </style>
+</head>
 
-* **HTML5** – Structure of the game
-* **CSS3** – Styling and layout
-* **JavaScript (Vanilla JS)** – Game logic and interactivity
+<body>
 
----
+  <div class="container">
+    <h2>Number Guessing Game</h2>
+    <p>Guess a number between 1 and 100</p>
 
-## ▶️ How to Run the Project
+    <input type="number" id="guessInput" placeholder="Enter your guess" />
+    <button onclick="checkGuess()">Submit Guess</button>
 
-### Step 1: Save the File
+    <div class="message" id="message"></div>
+    <div class="attempts" id="attempts"></div>
 
-* Copy the code into a file named:
+    <button class="restart" onclick="restartGame()">Restart Game</button>
+  </div>
 
-  ```
-  index.html
-  ```
+  <script>
+    let randomNumber;
+    let attempts;
 
-### Step 2: Open in Browser
+    function initGame() {
+      randomNumber = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      document.getElementById("message").textContent = "";
+      document.getElementById("attempts").textContent = "";
+      document.getElementById("guessInput").value = "";
+    }
 
-* Double-click the file OR
-* Open it using any modern browser like:
+    function checkGuess() {
+      const guess = Number(document.getElementById("guessInput").value);
+      const message = document.getElementById("message");
+      const attemptsText = document.getElementById("attempts");
 
-  * Google Chrome
-  * Mozilla Firefox
-  * Microsoft Edge
+      if (!guess || guess < 1 || guess > 100) {
+        message.textContent = "Please enter a number between 1 and 100";
+        return;
+      }
 
----
+      attempts++;
 
-## 🎮 How to Play
+      if (guess === randomNumber) {
+        message.textContent = "Correct! You gussed the number!";
+        attemptsText.textContent = `Total attempts: ${attempts}`;
+      } else if (guess > randomNumber) {
+        message.textContent = "Too high!";
+        attemptsText.textContent = `Attempts: ${attempts}`;
+      } else {
+        message.textContent = "Too low!";
+        attemptsText.textContent = `Attempts: ${attempts}`;
+      }
+    }
 
-1. Enter a number between **1 and 100**
-2. Click on **Submit Guess**
-3. Read the feedback:
+    function restartGame() {
+      initGame();
+    }
 
-   * "Too high!" → Try a smaller number
-   * "Too low!" → Try a bigger number
-   * "Correct!" → You win 🎉
-4. Check your total attempts
-5. Click **Restart Game** to play again
+    // Initialize game on load
+    initGame();
+  </script>
 
----
-
-## ⚠️ Notes
-
-* Only numbers between **1 and 100** are allowed
-* Invalid inputs will show an error message
-* The game resets when you click the restart button
-
----
-
-## 💡 Future Improvements
-
-* Add difficulty levels (Easy, Medium, Hard)
-* Add timer ⏱️
-* Add sound effects 🔊
-* Show previous guesses history
-* Add animations for better UX
-
----
-
-## 👨‍💻 Author
-
-Your Name
-
----
-
-## 📄 License
-
-This project is open-source and free to use.
+</body>
+</html>
